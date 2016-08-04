@@ -41,3 +41,17 @@ describe('Get /param', function () {
             })
     })
 });
+
+describe('Post /header', function () {
+    it("should get a parameter from header", function (done) {
+        req
+            .post('/header')
+            .set({'name':'fcc'})
+            .end(function (err, res) {
+                expect(res.text).toEqual('fcc');
+                done(err);
+            })
+    })
+});
+
+
