@@ -13,6 +13,10 @@ app.get('/query', function (req, res) {
     res.send(req.query.name);
 });
 
+app.get('/param',function (req,res) {
+    res.send(req.param('name'));
+});
+
 app.listen(3000, function () {
     console.log('Example app listening on port 3000!');
 });
