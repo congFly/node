@@ -30,3 +30,14 @@ describe('Get /query', function () {
             })
     })
 });
+
+describe('Get /param', function () {
+    it("should get a parameter from params", function (done) {
+        req
+            .get('/param?name=fcc')
+            .end(function (err, res) {
+                expect(res.text).toEqual('fcc');
+                done(err);
+            })
+    })
+});
