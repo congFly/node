@@ -6,7 +6,6 @@ req
     .end(function (err, res) {
         if (res.ok) {
             console.log("right," + res.text);
-        
 } else {
             console.log("error");
         }
