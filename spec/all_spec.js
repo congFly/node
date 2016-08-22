@@ -6,6 +6,7 @@ let req = supertest(app);
 describe('Post /body', function () {
     it("should get a parameter from body", function (done) {
         req
+
             .post('/body')
             .send({name: "fcc"})
             .end(function (err, res) {
@@ -46,7 +47,7 @@ describe('Post /header', function () {
     it("should get a parameter from header", function (done) {
         req
             .post('/header')
-            .set({'name':'fcc'})
+            .set({'name': 'fcc'})
             .end(function (err, res) {
                 expect(res.text).toEqual('fcc');
                 done(err);
@@ -58,8 +59,8 @@ describe('Post /json', function () {
     it("should get a parameter from json", function (done) {
         req
             .post('/json')
-            .send({'name':'fcc'})
-            .expect({'name':'fcc'})
+            .send({'name': 'fcc'})
+            .expect({'name': 'fcc'})
             .end(function (err, res) {
                 if (err) {
                     done.fail(err);
