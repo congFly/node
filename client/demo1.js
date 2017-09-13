@@ -1,4 +1,4 @@
-let req = require('superagent');
+var req = require('superagent');
 
 req
     .post('localhost:3000/body')

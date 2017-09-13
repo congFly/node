@@ -1,5 +1,5 @@
 'use strict';
-let req = require('superagent');
+var req = require('superagent');
 
 req
     .get('localhost:3000/query')
