@@ -4,14 +4,20 @@
 var http = require("http");
 var url = require('url');
 
-function start() {
-    console.log("Request handler 'start' was called.");
-}
+function start(route, handle) {
+    function onRequest(request, response) {
+        var pathname = url.parse(reqauest.url).pathname;
+        console.log('request for ' + pathname + 'received.');
 
-function upload() {
-    console.log("Request handler 'upload' was called.");
+        route(handle, pathname);
+        response.writeHead(200, {"Content-Type": "text/plain"});
+        response.write("hello world");
+        response.end();
+    }
+
+    http.createServer(onRequest).listen(8888);
+    console.log('server has start!');
 }
 
 
 exports.start = start;
-exports.upload = upload;
